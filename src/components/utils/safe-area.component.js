@@ -8,4 +8,5 @@ import styled from "styled-components/native";
 // - StatusBar.currentHeight is only supported on Android
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
