@@ -1,5 +1,6 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from "react";
+import { LogBox } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import * as firebase from "firebase";
 import {
@@ -24,6 +25,12 @@ const firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+
+// Blocks the warnings from showing in the simulator (they will still show in the console)
+LogBox.ignoreLogs([
+  "AsyncStorage has been extracted from react-native core",
+  "ViewPropTypes will be removed",
+]);
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
